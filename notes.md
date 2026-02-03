@@ -235,31 +235,6 @@ Header files contain declarations and are included during compilation. Their con
 
 ---
 
-### `#include` vs `import`
-
-| Feature        | C++ `#include` | Java `import`   |
-| -------------- | -------------- | --------------- |
-| Code copied    | Yes            | No              |
-| Preprocessor   | Yes            | No              |
-| Runtime effect | None           | Name resolution |
-
----
-
-### Header Guards
-
-Used to prevent multiple inclusion of the same header file.
-
-```cpp
-#ifndef MYHEADER_H
-#define MYHEADER_H
-
-// declarations
-
-#endif
-```
-
----
-
 ## NAMESPACES
 
 ### Purpose of Namespaces
@@ -285,7 +260,25 @@ Used to access namespace members, class members, and global variables.
 ```cpp
 std::cout << A::value;
 ```
+___
+```cpp
+#include <iostream>
+using namespace std;
 
+namespace A {
+    int value = 10;
+}
+
+namespace B {
+    int value = 20;
+}
+
+int main() {
+    cout << A::value << "\n";  // Access value from namespace A
+    cout << B::value << "\n";  // Access value from namespace B
+    return 0;
+}
+```
 ---
 
 ## POINTERS AND REFERENCES
