@@ -392,12 +392,9 @@ ___
 using namespace std;
 
 void reverseK(int arr[], int n, int k) {
-    for (int i = 0; i < n; i += k) {
+    for (int i = 0; i + k <= n; i += k) {
         int left = i;
         int right = i + k - 1;
-
-        if (right >= n)
-            right = n - 1;
 
         while (left < right) {
             int temp = arr[left];
@@ -412,7 +409,7 @@ void reverseK(int arr[], int n, int k) {
 int main() {
     int arr[] = {1,2,3,4,5,6,7,8,9};
     int n = 9;
-    int k = 4;
+    int k = 5;
 
     reverseK(arr, n, k);
 
@@ -421,12 +418,9 @@ int main() {
     }
     return 0;
 }
+
 ```
-input - 
+ ### Output - 
 ```
-1 2 3 4 5 6 7 8 9
-```
-output - 
-```
-4 3 2 1 8 7 6 5 9
+5 4 3 2 1 6 7 8 9
 ```
