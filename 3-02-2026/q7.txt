@@ -1,0 +1,50 @@
+Delete Element at Position
+Problem Statement
+You are managing a playlist application where songs are stored in an array. When a user decides to remove a song from a specific position in the playlist, you need to delete that element and shift all subsequent songs to the left to fill the gap.
+Given an integer array playlist representing song IDs and an integer position, delete the element at the given position from the array. All elements after position should be shifted one position to the left to fill the gap.
+Note: After deletion, the array size effectively reduces by one. You may return a new array with the reduced size, or modify the original array and return the new length.
+
+Examples
+Example 1:
+Input: playlist = [501, 502, 503, 504, 505], position = 2
+Output: [501, 502, 504, 505]
+
+Explanation: 
+Element 503 at index 2 is deleted.
+Element 504 at index 3 moves to index 2.
+Element 505 at index 4 moves to index 3.
+New array length is 4.
+Example 2:
+Input: playlist = [10, 20, 30, 40], position = 0
+Output: [20, 30, 40]
+
+Explanation: 
+Deleting the first element shifts all remaining elements to the left.
+Example 3:
+Input: playlist = [100, 200, 300], position = 2
+Output: [100, 200]
+
+Explanation: 
+Deleting the last element requires no shifting.
+Example 4:
+Input: playlist = [50], position = 0
+Output: []
+
+Explanation: 
+Deleting the only element results in an empty array.
+
+Constraints
+
+1 <= playlist.length <= 10^4
+0 <= position < playlist.length
+-10^9 <= playlist[i] <= 10^9
+
+
+________________________________________________
+Follow-up Questions
+
+What is the time complexity of your solution?
+What happens if the position is invalid (negative or >= array length)?
+How would you optimize if you need to perform multiple deletions?
+Can you solve this in-place and just return the new valid length instead of creating a new array?
+If deleting from the end is common, how would you optimize for that case?

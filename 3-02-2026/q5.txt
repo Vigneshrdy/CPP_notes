@@ -1,0 +1,12 @@
+Problem:
+Reverse an array in-place.
+Examples:
+Input: [1, 2, 3, 4, 5]
+Output: [5, 4, 3, 2, 1]
+
+Input: [10, 20, 30]
+Output: [30, 20, 10]  
+__________________________________________________________
+Follow up Questions
+1. What will happen if the array is empty 
+2. What will happen if the array has only one elemnt

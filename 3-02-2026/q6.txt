@@ -1,0 +1,13 @@
+Problem:
+Reverse every group of k elements in an array. If remaining elements are less than k, reverse all of them.
+Examples:
+Input: arr = [1, 2, 3, 4, 5, 6, 7, 8], k = 3
+Output: [3, 2, 1, 6, 5, 4, 8, 7]
+Explanation: First 3 reversed, next 3 reversed, last 2 reversed
+
+Input: arr = [1, 2, 3, 4, 5], k = 2
+Output: [2, 1, 4, 3, 5]
+What will happen for 
+k = 1
+k >= array length 
+k = 0 

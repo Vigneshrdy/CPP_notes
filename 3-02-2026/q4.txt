@@ -1,0 +1,87 @@
+Update Array Elements Based on Criteria
+Problem Statement
+You are developing an inventory management system for a warehouse. The system tracks product stock levels in an array. Due to a quality control issue, you need to update stock quantities based on specific criteria.
+Given an integer array inventory where each element represents the stock quantity of a product, and given a threshold value and an adjustment value, update all products that meet certain criteria.
+Update Rule: For all products where the stock quantity is greater than or equal to the threshold, apply the adjustment (which can be positive or negative).
+Return the updated inventory array.
+
+Examples
+Example 1:
+Input: inventory = [50, 30, 80, 20, 100], threshold = 40, adjustment = -10
+Output: [40, 30, 70, 20, 90]
+
+Explanation: 
+- 50 >= 40, so 50 - 10 = 40
+- 30 < 40, no change = 30
+- 80 >= 40, so 80 - 10 = 70
+- 20 < 40, no change = 20
+- 100 >= 40, so 100 - 10 = 90
+Example 2:
+Input: inventory = [10, 20, 30, 40, 50], threshold = 25, adjustment = 5
+Output: [10, 20, 35, 45, 55]
+
+Explanation: 
+Elements 30, 40, 50 are >= 25, so they get +5 adjustment.
+Example 3:
+Input: inventory = [100, 200, 150], threshold = 500, adjustment = -50
+Output: [100, 200, 150]
+
+Explanation: 
+No elements meet the threshold criteria, so no updates occur.
+Example 4:
+Input: inventory = [5, 5, 5, 5], threshold = 5, adjustment = 10
+Output: [15, 15, 15, 15]
+
+Explanation: 
+All elements equal the threshold (5 >= 5), so all get updated.
+
+Constraints
+
+1 <= inventory.length <= 10^4
+-10^9 <= inventory[i] <= 10^9
+-10^9 <= threshold <= 10^9
+-10^9 <= adjustment <= 10^9
+
+
+Problem Variations
+Variation 1: Update with Range
+Update elements that fall within a range [minThreshold, maxThreshold].
+javaInput: inventory = [10, 25, 50, 75, 100], minThreshold = 20, maxThreshold = 60, adjustment = -5
+Output: [10, 20, 45, 70, 100]
+
+Explanation: Only 25, 50, and 75 are in range [20, 60], so they get adjusted.
+Variation 2: Update with Multiple Criteria
+Update elements based on multiple conditions (e.g., even numbers above threshold).
+javaInput: inventory = [10, 15, 20, 25, 30], threshold = 15, adjustment = 2
+Criteria: Update only EVEN numbers >= threshold
+Output: [10, 15, 22, 25, 32]
+
+Explanation: 20 and 30 are even and >= 15, so updated to 22 and 32.
+Variation 3: Conditional Update with Index
+Update elements based on both value and position (e.g., update odd indices if value > threshold).
+javaInput: inventory = [10, 20, 30, 40, 50], threshold = 15, adjustment = 5
+Criteria: Update only elements at ODD indices AND value > threshold
+Output: [10, 25, 30, 45, 50]
+
+Explanation: 
+- Index 1: value=20 > 15, odd index → 20+5 = 25
+- Index 3: value=40 > 15, odd index → 40+5 = 45
+Variation 4: Percentage-based Update
+Update elements by a percentage rather than fixed adjustment.
+javaInput: inventory = [100, 50, 200, 75], threshold = 60, percentageIncrease = 20
+Output: [120, 50, 240, 90]
+
+Explanation: 
+- 100 >= 60, so 100 + (100 * 0.20) = 120
+- 50 < 60, no change
+- 200 >= 60, so 200 + (200 * 0.20) = 240
+- 75 >= 60, so 75 + (75 * 0.20) = 90
+______________________________________________________
+Follow-up Questions
+
+What is the time complexity of your solution?
+Can you solve this in-place without using extra space?
+How would you handle the case where adjustment causes negative inventory?
+What if you need to track which elements were updated (return their indices)?
+How would you optimize if most elements don't meet the criteria?
+What if the array is sorted? Can you optimize the solution?
