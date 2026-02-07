@@ -36,7 +36,7 @@ Medicine(int i):quantity(i)
 {
 
 }
-    you have other constructors
+    /* you have other constructors*/
     Medicine() {
         name = "Unknown";
         price = 0.0;
