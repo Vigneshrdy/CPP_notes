@@ -1,0 +1,310 @@
+================================================================================
+EXERCISE SET 1: BASIC CLASS MODIFICATIONS (EASY)
+================================================================================
+
+Exercise 1.1: Add New Attributes
+
+Task: Add the following to the Medicine class:
+- A manufacturer (string) attribute
+- A category (string) attribute (e.g., "Pain Relief", "Antibiotic")
+- Update the constructor to accept these parameters
+- Add getter and setter methods
+- Update the display() method to show these new fields
+
+Expected Output:
+--- Medicine Details ---
+Name: Aspirin
+Manufacturer: Bayer
+Category: Pain Relief
+Price: $5.99
+Quantity: 100
+Expiry: 2026-12-31
+
+
+Exercise 1.2: Add Validation Method
+
+Task: Add a method bool isExpired(string currentDate) to Medicine class
+- Compare expiry date with current date (simple string comparison is fine)
+- Make it a const method (doesn't modify the object)
+- In main, test this method and print "EXPIRED" or "VALID" for each medicine
+
+
+================================================================================
+EXERCISE SET 2: MEMORY MANAGEMENT (MEDIUM)
+================================================================================
+
+Exercise 2.1: Dynamic Medicine Creation
+
+Task: In main.cpp:
+1. Create 3 Medicine objects on the stack
+2. Create 3 Medicine objects on the heap using new
+3. Display all 6 medicines
+4. Properly delete the heap-allocated medicines
+5. Add print statements to show when objects are created and destroyed
+
+Questions to Answer:
+- What happens if you forget to delete a heap object?
+- When are the stack objects destroyed?
+- What's the difference in accessing stack vs heap objects?
+
+
+Exercise 2.2: Copy Constructor
+
+Task:
+1. Create a Medicine object original
+2. Create a copy: Medicine copy = original;
+3. Change the price of copy
+4. Print both prices
+5. Explain: Are they the same or different? Why?
+
+Bonus Challenge: What would happen if Medicine had a pointer member? Would the 
+default copy constructor work correctly?
+
+
+================================================================================
+EXERCISE SET 3: PHARMACY CLASS ENHANCEMENT (MEDIUM)
+================================================================================
+
+Exercise 3.1: Search Functionality
+
+Task: Add these methods to the Pharmacy class:
+
+Medicine* findByName(string name);
+void findByCategory(string category);  // Prints all medicines in category
+int getTotalMedicines();
+double getTotalInventoryValue();  // Sum of (price × quantity) for all medicines
+
+Test these methods in main.cpp.
+
+
+Exercise 3.2: Remove Medicine
+
+Task: Add a method bool removeMedicine(string name) to Pharmacy
+- Find the medicine by name
+- Remove it from inventory array
+- Shift remaining elements
+- Decrease inventorySize
+- Return true if found and removed, false otherwise
+
+Test Case:
+cityPharmacy.addMedicine(med1);
+cityPharmacy.addMedicine(med2);
+cityPharmacy.addMedicine(med3);
+cityPharmacy.removeMedicine("Aspirin");
+cityPharmacy.displayInventory();  // Should only show 2 medicines
+
+
+================================================================================
+EXERCISE SET 4: MULTIPLE FILES (MEDIUM-HARD)
+================================================================================
+
+Exercise 4.1: Create Customer Class
+
+Task: Create a new Customer class in separate files:
+
+1. Create Customer.h with:
+   - Attributes: name, phone, loyaltyPoints
+   - Constructor
+   - Methods: addPoints(), redeemPoints(), display()
+   - Proper header guards
+
+2. Create Customer.cpp with implementations
+
+3. Update Pharmacy class to have a Customer array
+
+4. In main.cpp, create customers and add them to pharmacy
+
+Compilation Test:
+g++ Medicine.cpp Pharmacy.cpp Customer.cpp main.cpp -o pharmacy
+
+
+Exercise 4.2: Create Transaction Class
+
+Task: Create Transaction class:
+- Attributes: Customer* customer, Medicine* medicine, quantity, totalAmount, date
+- Constructor that calculates total amount
+- Method: void printReceipt()
+
+Requirements:
+1. Transaction uses both Customer and Medicine classes
+2. Must include both header files in Transaction.h
+3. Create a transaction in main and print receipt
+
+
+================================================================================
+EXERCISE SET 5: ADVANCED CONCEPTS (HARD)
+================================================================================
+
+Exercise 5.1: Overstock Detection
+
+Task: Add to Medicine class:
+bool isOverstocked(int threshold) const;
+
+Add to Pharmacy class:
+void listOverstockedMedicines(int threshold);
+void listLowStockMedicines(int threshold);
+
+Test with different threshold values.
+
+
+Exercise 5.2: Pharmacy Statistics
+
+Task: Add to Pharmacy class:
+
+Medicine* getMostExpensive();
+Medicine* getCheapest();
+double getAveragePrice();
+void generateReport();  // Prints comprehensive statistics
+
+The generateReport() should display:
+- Total medicines
+- Total inventory value
+- Average price
+- Most expensive medicine
+- Cheapest medicine
+- Medicines expiring soon (you define "soon")
+
+
+================================================================================
+EXERCISE SET 6: POINTERS AND REFERENCES (HARD)
+================================================================================
+
+Exercise 6.1: Pass by Value vs Reference
+
+Task: Create three versions of a function that applies a discount:
+
+void applyDiscount1(Medicine m, double percent);      // Pass by value
+void applyDiscount2(Medicine& m, double percent);     // Pass by reference
+void applyDiscount3(Medicine* m, double percent);     // Pass by pointer
+
+Test:
+1. Create one Medicine object
+2. Call each function with it
+3. Print the price after each call
+4. Explain which ones actually changed the price and why
+
+
+Exercise 6.2: Return Pointer Safety
+
+Task:
+1. Write a function that returns a pointer to Medicine:
+Medicine* createMedicine(string name, double price);
+
+2. Write a function that finds medicine:
+Medicine* findCheapest(Medicine* arr, int size);
+
+Questions:
+- What should you return if array is empty?
+- When should you use nullptr?
+- What happens if you return a pointer to a local variable?
+
+
+================================================================================
+EXERCISE SET 7: REAL-WORLD SCENARIO (PROJECT-LEVEL)
+================================================================================
+
+Exercise 7.1: Complete Pharmacy System
+
+Task: Build a menu-driven pharmacy system:
+
+=== PHARMACY MANAGEMENT SYSTEM ===
+1. Add Medicine
+2. Remove Medicine
+3. Search Medicine
+4. Display All Medicines
+5. Sell Medicine
+6. Restock Medicine
+7. Add Customer
+8. Create Transaction
+9. Generate Report
+0. Exit
+
+Enter choice: _
+
+Requirements:
+- Proper file organization (separate .h and .cpp for each class)
+- Dynamic memory management (arrays or vectors)
+- Input validation
+- Error handling
+- Proper use of constructors/destructors
+- At least 3 classes: Medicine, Pharmacy, Customer
+
+Compilation must work:
+g++ Medicine.cpp Pharmacy.cpp Customer.cpp main.cpp -o pharmacy
+./pharmacy
+
+
+================================================================================
+GRADING RUBRIC SUGGESTIONS
+================================================================================
+
+For Each Exercise:
+
+Syntax & Compilation (30%)
+- Code compiles without errors
+- Proper header guards
+- Correct include statements
+- No warnings
+
+Functionality (40%)
+- Program produces correct output
+- All requirements implemented
+- Edge cases handled
+
+Memory Management (15%)
+- Proper use of new/delete
+- No memory leaks
+- Appropriate use of stack vs heap
+
+Code Quality (15%)
+- Good variable names
+- Proper comments
+- Clean organization
+- Follows C++ conventions
+
+
+================================================================================
+COMMON MISTAKES TO WATCH FOR
+================================================================================
+
+1. Forgetting header guards → Multiple definition errors
+2. Not deleting heap memory → Memory leaks
+3. Using dot (.) instead of arrow (->) for pointers
+4. Forgetting to include necessary headers in .cpp files
+5. Putting implementation in .h files (except inline functions)
+6. Not compiling all .cpp files together
+7. Returning pointers to local variables → Dangling pointers
+8. Not checking for nullptr before dereferencing
+
+
+================================================================================
+PROGRESSIVE LEARNING PATH
+================================================================================
+
+Week 1: Exercises 1.1, 1.2 (Basic class modifications)
+Week 2: Exercises 2.1, 2.2 (Memory management)
+Week 3: Exercises 3.1, 3.2 (Pharmacy enhancements)
+Week 4: Exercises 4.1, 4.2 (Multi-file organization)
+Week 5: Exercises 5.1, 5.2 (Advanced logic)
+Week 6: Exercises 6.1, 6.2 (Pointers and references)
+Week 7-8: Exercise 7.1 (Final project)
+
+
+================================================================================
+BONUS CHALLENGES
+================================================================================
+
+Bonus 1: Operator Overloading
+Override the << operator for Medicine class:
+cout << medicine;  // Should print medicine details
+
+Bonus 2: File I/O
+Save pharmacy inventory to a file and load it back:
+void Pharmacy::saveToFile(string filename);
+void Pharmacy::loadFromFile(string filename);
+
+Bonus 3: Smart Pointers (C++11)
+Replace raw pointers with unique_ptr or shared_ptr
+
+Bonus 4: STL Containers
+Replace arrays with vector<Medicine> or map<string, Medicine>
