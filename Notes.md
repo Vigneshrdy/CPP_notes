@@ -444,4 +444,5 @@ It can be done in 3 way. they are -
 - swapping 
 - creation of new array and play with  indexes
 - reverse of array 
+
 questions on these topics are [here](./5-2-2026/)
