@@ -450,3 +450,6 @@ ___
 # OOPS in CPP - 
 - for notes and question go [here](./7%20-%202%20-%202026/)
 ---
+## Operator overloading- 
+### What is operator overloading and why is it important for data structure ??
+- Operator overloading is the ability to redefine the behavior of built-in operators for user-defined types (classes/structs). Instead of calling a method explicitly, you can use natural syntax with your custom objects. Its important because it helps in making the code more accessible to read and make custom methods(sort,compare,etc).
