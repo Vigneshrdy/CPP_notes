@@ -455,3 +455,9 @@ ___
 - Operator overloading is the ability to redefine the behavior of built-in operators for user-defined types (classes/structs). Instead of calling a method explicitly, you can use natural syntax with your custom objects. Its important because it helps in making the code more accessible to read and make custom methods(sort,compare,etc).
 - for question on this topic refer [here](./12-02-2026/).
 - in the above code we have been given operator overloading for ++ and many other we need to do for other like --(both post and pre).
+
+- private members of a class cannot be accessed outside the class.
+- in C++ in order to access private members of class i have to declare a friend function. 
+- a freind function needs to abstract inside the class.
+- the implementation of friend function needs to be outside the class.
+- while implimenting the function you will omit the keyword "friend".
