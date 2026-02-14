@@ -463,3 +463,8 @@ ___
 - while implimenting the function you will omit the keyword "friend".
 ## Vectors - 
 for question on vector refer [here](./12-02-2026/vector/).
+___
+# Virtual function - 
+## What is polymorphism ? 
+- The word polymorphism means having many forms. 
+- in java its method overloading and method overriding 
