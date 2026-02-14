@@ -465,6 +465,9 @@ ___
 for question on vector refer [here](./12-02-2026/vector/).
 ___
 # Virtual function - 
+- it enables runtime polymorphism in cpp.
 ## What is polymorphism ? 
 - The word polymorphism means having many forms. 
 - in java its method overloading and method overriding 
+---
+- questions on virtaul function are [here](./14-02-2026/)
