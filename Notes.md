@@ -471,3 +471,7 @@ ___
 - in java its method overloading and method overriding 
 ---
 - questions on virtaul function are [here](./14-02-2026/)
+---
+## Linked List - 
+- A linked list is defined as a collection of nodes where each node consists of two members which represents its value and a next/previous pointer which stores the address for the next/previous node.
+
