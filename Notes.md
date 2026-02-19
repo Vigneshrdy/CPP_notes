@@ -541,3 +541,129 @@ int main() {
     return 0;
 }
 ```
+___
+## Add at the end - 
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Student {
+    string name;
+    int rollNumber;
+    float cgpa;
+    Student* next;
+
+    Student(string n, int r, float c) {
+        name = n;
+        rollNumber = r;
+        cgpa = c;
+        next = nullptr;
+    }
+};
+
+void addAtEnd(Student* &head, string name, int roll, float cgpa) {
+    Student* newNode = new Student(name, roll, cgpa);
+    if (head == nullptr) {
+        head = newNode;
+        return;
+    }
+    Student* ptr = head;
+    while (ptr->next != nullptr)
+        ptr = ptr->next;
+    ptr->next = newNode;
+}
+
+void printList(Student* head) {
+    Student* ptr = head;
+    while (ptr != nullptr) {
+        cout << "Name: " << ptr->name << ", Roll: " << ptr->rollNumber << ", CGPA: " << ptr->cgpa << endl;
+        ptr = ptr->next;
+    }
+}
+
+int main() {
+    Student* s1 = new Student("Alice",   101, 3.9);
+    Student* s2 = new Student("Bob",     102, 3.5);
+    Student* s3 = new Student("Charlie", 103, 3.7);
+    Student* s4 = new Student("Diana",   104, 3.2);
+
+    s1->next = s2;
+    s2->next = s3;
+    s3->next = s4;
+
+    Student* head = s1;
+
+    cout << "=== Before Adding ===" << endl;
+    printList(head);
+
+    addAtEnd(head, "Eve", 105, 3.8);
+
+    cout << "\n=== After Adding Eve at End ===" << endl;
+    printList(head);
+
+    return 0;
+}
+```
+___
+
+
+
+
+## Add at the Start - 
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Student {
+    string name;
+    int rollNumber;
+    float cgpa;
+    Student* next;
+
+    Student(string n, int r, float c) {
+        name = n;
+        rollNumber = r;
+        cgpa = c;
+        next = nullptr;
+    }
+};
+
+void addAtStart(Student* &head, string name, int roll, float cgpa) {
+    Student* newNode = new Student(name, roll, cgpa);
+    newNode->next = head;
+    head = newNode;
+}
+
+void printList(Student* head) {
+    Student* ptr = head;
+    while (ptr != nullptr) {
+        cout << "Name: " << ptr->name << ", Roll: " << ptr->rollNumber << ", CGPA: " << ptr->cgpa << endl;
+        ptr = ptr->next;
+    }
+}
+
+int main() {
+    Student* s1 = new Student("Alice",   101, 3.9);
+    Student* s2 = new Student("Bob",     102, 3.5);
+    Student* s3 = new Student("Charlie", 103, 3.7);
+    Student* s4 = new Student("Diana",   104, 3.2);
+
+    s1->next = s2;
+    s2->next = s3;
+    s3->next = s4;
+
+    Student* head = s1;
+
+    cout << "=== Before Adding ===" << endl;
+    printList(head);
+
+    addAtStart(head, "Eve", 100, 3.8);
+
+    cout << "\n=== After Adding Eve at Start ===" << endl;
+    printList(head);
+
+    return 0;
+}
+```
