@@ -474,4 +474,70 @@ ___
 ---
 ## Linked List - 
 - A linked list is defined as a collection of nodes where each node consists of two members which represents its value and a next/previous pointer which stores the address for the next/previous node.
+# Printing of linked list - 
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
 
+struct Student {
+    string name;
+    int rollNumber;
+    float cgpa;
+    Student* next;
+};
+
+void printList(Student* head) {
+    Student* ptr = head;  // pointer pointing to start of linked list
+    while (ptr != nullptr) {
+        cout << "Name: " << ptr->name << ", Roll: " << ptr->rollNumber << ", CGPA: " << ptr->cgpa << endl;
+        ptr = ptr->next;
+    }
+}
+
+void printFirst(Student* head) {
+    Student* ptr = head;
+    cout << "First -> Name: " << ptr->name << ", Roll: " << ptr->rollNumber << ", CGPA: " << ptr->cgpa << endl;
+}
+
+void printLast(Student* head) {
+    Student* ptr = head;
+    while (ptr->next != nullptr)
+        ptr = ptr->next;
+    cout << "Last -> Name: " << ptr->name << ", Roll: " << ptr->rollNumber << ", CGPA: " << ptr->cgpa << endl;
+}
+
+void printAtPosition(Student* head, int pos) {
+    Student* ptr = head;
+    int count = 1;
+    while (ptr != nullptr) {
+        if (count == pos) {
+            cout << "Position " << pos << " -> Name: " << ptr->name << ", Roll: " << ptr->rollNumber << ", CGPA: " << ptr->cgpa << endl;
+            return;
+        }
+        ptr = ptr->next;
+        count++;
+    }
+    cout << "Position " << pos << " not found!" << endl;
+}
+
+int main() {
+    Student* s1 = new Student{"Alice",   101, 3.9, nullptr};
+    Student* s2 = new Student{"Bob",     102, 3.5, nullptr};
+    Student* s3 = new Student{"Charlie", 103, 3.7, nullptr};
+    Student* s4 = new Student{"Diana",   104, 3.2, nullptr};
+
+    s1->next = s2;
+    s2->next = s3;
+    s3->next = s4;
+
+    Student* head = s1;
+
+    printList(head);
+    printFirst(head);
+    printLast(head);
+    printAtPosition(head, 3);
+
+    return 0;
+}
+```
